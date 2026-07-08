@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import school.hei.subscribe.PojaGenerated;
 import school.hei.subscribe.endpoint.event.EventProducer;
 import school.hei.subscribe.endpoint.event.model.DurablyFallibleUuidCreated1;
+import school.hei.subscribe.endpoint.event.model.DurablyFallibleUuidCreated2;
 import school.hei.subscribe.endpoint.event.model.UuidCreated;
 import school.hei.subscribe.repository.DummyUuidRepository;
 import school.hei.subscribe.repository.model.DummyUuid;
@@ -34,6 +35,13 @@ public class HealthEventController {
       @RequestParam(defaultValue = "1") int nbEvent,
       @RequestParam(defaultValue = "2") int waitInSeconds) {
     return handleEvent(nbEvent, waitInSeconds, DurablyFallibleUuidCreated1.class);
+  }
+
+  @GetMapping(value = "/health/event2")
+  public List<String> handleEvent2(
+      @RequestParam(defaultValue = "1") int nbEvent,
+      @RequestParam(defaultValue = "2") int waitInSeconds) {
+    return handleEvent(nbEvent, waitInSeconds, DurablyFallibleUuidCreated2.class);
   }
 
   @PostMapping(value = "/health/event/uuids")
@@ -76,6 +84,13 @@ public class HealthEventController {
     if (eventType.equals(DurablyFallibleUuidCreated1.class)) {
       return eventType.cast(
           DurablyFallibleUuidCreated1.builder()
+              .uuidCreated(uuidCreated)
+              .failureRate(failureRate)
+              .waitDurationBeforeConsumingInSeconds(waitInSeconds)
+              .build());
+    } else if (eventType.equals(DurablyFallibleUuidCreated2.class)) {
+      return eventType.cast(
+          DurablyFallibleUuidCreated2.builder()
               .uuidCreated(uuidCreated)
               .failureRate(failureRate)
               .waitDurationBeforeConsumingInSeconds(waitInSeconds)
