@@ -1,7 +1,5 @@
-package com.example.eventsync.endpoint.rest.advice;
+package school.hei.subscribe.exception;
 
-import com.example.eventsync.service.AlreadySubscribedException;
-import com.example.eventsync.service.ResourceNotFoundException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.springframework.http.HttpStatus;

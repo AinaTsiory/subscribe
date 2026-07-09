@@ -1,4 +1,4 @@
-package school.hei.subscribe.endpoint.rest.controller.health;
+package school.hei.subscribe.endpoint.rest.controller;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

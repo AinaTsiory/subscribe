@@ -1,4 +1,4 @@
-package school.hei.subscribe.endpoint.rest.event.model;
+package school.hei.subscribe.endpoint.event.model;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import school.hei.subscribe.endpoint.event.model.PojaEvent;
 
 @NoArgsConstructor
 @AllArgsConstructor
