@@ -1,20 +1,22 @@
-package school.hei.subscribe.entity;
+package school.hei.subscribe.endpoint.rest.dto;
+
+import school.hei.subscribe.entity.Subscription;
 
 import java.time.Instant;
 import java.util.UUID;
 
-public class Subscription {
+public class SubscriptionResponse {
 
     private final UUID id;
     private final UUID userId;
     private final UUID courseId;
     private final Instant subscribedAt;
 
-    public Subscription(UUID id, UUID userId, UUID courseId, Instant subscribedAt) {
-        this.id = id;
-        this.userId = userId;
-        this.courseId = courseId;
-        this.subscribedAt = subscribedAt;
+    public SubscriptionResponse(Subscription subscription) {
+        this.id = subscription.getId();
+        this.userId = subscription.getUserId();
+        this.courseId = subscription.getCourseId();
+        this.subscribedAt = subscription.getSubscribedAt();
     }
 
     public UUID getId() {
