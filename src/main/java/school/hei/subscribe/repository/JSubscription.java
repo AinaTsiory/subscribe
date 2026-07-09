@@ -7,8 +7,8 @@ import java.util.UUID;
 
 @Entity
 @Table(
-        name = "subscriptions",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "course_id"})
+    name = "subscriptions",
+    uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "course_id"})
 )
 public class JSubscription {
 

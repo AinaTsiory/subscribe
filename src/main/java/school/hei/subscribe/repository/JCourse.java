@@ -1,26 +1,25 @@
 package school.hei.subscribe.repository;
 
-
 import jakarta.persistence.*;
 
 import java.time.Instant;
 import java.util.UUID;
 
 @Entity
-@Table(name = “courses”)
+@Table(name = "courses")
 public class JCourse {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = “title”, nullable = false)
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = “start_date”, nullable = false)
+    @Column(name = "start_date", nullable = false)
     private Instant startDate;
 
-    @Column(name = “end_date”, nullable = false)
+    @Column(name = "end_date", nullable = false)
     private Instant endDate;
 
     protected JCourse() {
